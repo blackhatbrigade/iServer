@@ -1,0 +1,19 @@
+syntax="proto3";
+
+option go_package = "localhost/goPlay/routeguide/routeguide";
+
+package routeguide;
+
+service RouteGuide {
+  // A status request that helps with connection health.
+  //
+  // Heartbeat request that includes the Unix Nanosecond timestamp it was sent.
+  // Recieves the Unix Nanosecond timestamp of when the message was received.
+  // 
+  // This help determine network latency and livelyness.
+  rpc HeartBeat(Time) returns (Time) {}
+}
+
+message Time {
+  int64 unixNano = 1;
+}
